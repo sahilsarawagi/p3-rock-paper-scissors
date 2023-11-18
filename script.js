@@ -1,8 +1,13 @@
 let playerScore=0;
 let computerScore=0;
 const btn = document.querySelectorAll('button');
-
-
+const playerScoreText = document.createTextNode('0');
+const computerScoreText = document.createTextNode('0');
+const playerScoreHead = document.querySelector('.playerScoreHead');
+const computerScoreHead = document.querySelector('.computerScoreHead')
+const resutlPara =document.querySelector('p');
+playerScoreHead.appendChild(playerScoreText)
+computerScoreHead.appendChild(computerScoreText)
 
 
 btn.forEach((button) => {
@@ -17,18 +22,20 @@ btn.forEach((button) => {
 
 
 function updateScores(){
-    console.log(`Player SCORE: ${playerScore}`);
-    console.log(`Computer SCORE: ${computerScore}`);
+    playerScoreText.textContent = playerScore
+    computerScoreText.textContent =computerScore
 }
 
 
 function checkGameOver(){
     if(playerScore==5){
-        alert("you Won hurray!");
+        // alert("");
+        resutlPara.textContent = "You Won hurray!"
         resetScores();
     }
     else if(computerScore==5){
-        alert("You lose, Better luck Next Time");
+        // alert("");
+        resutlPara.textContent = "You Lose, Better Luck Next Time"
         resetScores();
     }
 }
@@ -72,13 +79,13 @@ function game(playerResponse){
     const result = matchResult(computerResponse,playerResponse);
 
     if(result==1){
-        console.log(`You Won! ${playerResponse} beats ${computerResponse}`);
+        resutlPara.textContent = `You Won! This Round ${playerResponse} beats ${computerResponse}`;
         playerScore+=1;
     } else if(result==2){
-        console.log("Match Tie, play again")
+        resutlPara.textContent = "Match Tie, play again";
     }
     else {
-        console.log(`You Lose! ${computerResponse} beats ${playerResponse}`);
+        resutlPara.textContent = `You Lose! This Round ${computerResponse} beats ${playerResponse}`;
         computerScore+=1;
     }
 
