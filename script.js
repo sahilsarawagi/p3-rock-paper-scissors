@@ -1,5 +1,8 @@
 
-// This function generates the choic of computer
+// This function generates the choice of computer
+
+let playerScore=0;
+let computerScore=0;
 function getComputerChoice(){
     const choice = Math.floor(Math.random()*3);
     console.log(choice);
@@ -50,16 +53,35 @@ function game(){
 
     if(result==1){
         console.log(`You Won! ${playerResponse} beats ${computerResponse}`);
+        playerScore+=1;
     } else if(result==2){
         console.log("Match Tie, play again")
     }
     else {
         console.log(`You Lose! ${computerResponse} beats ${playerResponse}`);
+        computerScore+=1;
     }
 
 }
 
-game();
+function fiveRoundGame(){
+    while(playerScore!=5 && computerScore!=5){
+        game();
+        console.log(`Player SCORE: ${playerScore}`);
+        console.log(`Computer SCORE: ${computerScore}`);
+    }
+    if(playerScore==5){
+        console.log("you Won hurray!");
+    }
+    else{
+        console.log("You lose, Better luck Next Time");
+    }
+
+
+}
+fiveRoundGame();
+
+
 
 
 
