@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+}
+.head1 {
+    font-size: 50px;
+}
+.head3 {
+    word-spacing: 50px;
+    font-size: x-large;
+}
+.scoreDiv {
+    display: flex;
+    justify-content: center;
+     gap: 100px;
+}
+.playerScoreHead,
+.computerScoreHead {
+    margin-top: 0px;
+    margin-right: 55px;
+}
+.buttonDiv {
+    display: flex; 
+    justify-content: center; 
+    gap: 70px;
+}
+.btn {
+    width: 100px;
+    height:40px;
+    border-radius: 12px;
+}
